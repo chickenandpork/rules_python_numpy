@@ -3,6 +3,7 @@ load(
     "data_requirement",
     "dist_info_requirement",
     "entry_point",
+    "requirement",
 )
 load("@rules_python//python:defs.bzl", "py_binary", "py_test")
 load("@rules_python//python:pip.bzl", "compile_pip_requirements")
@@ -19,6 +20,14 @@ py_test(
     name = "test",
     srcs = ["test.py"],
     deps = [":main"],
+)
+
+py_test(
+    name = "numpy_test",
+    srcs = ["numpy_test.py"],
+    deps = [
+        requirement("numpy"),
+    ],
 )
 
 # This rule adds a convenient way to update the requirements file.
