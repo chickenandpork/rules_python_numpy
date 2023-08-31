@@ -25,7 +25,7 @@ load("@rules_python//python:pip.bzl", "pip_parse")
 
 pip_parse(
     name = "pypi",
-    environment = {"HTTPS_PROXY": "http://10.0.0.9:3128/"},
+    #environment = {"HTTPS_PROXY": "http://10.0.0.9:3128/"},
     # extra_pip_args = ["-v"],
     # pip_data_exclude = ["**/* */**"],
     python_interpreter_target = interpreter,
