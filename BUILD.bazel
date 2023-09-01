@@ -41,10 +41,26 @@ py_test(
     ],
 )
 
+py_test(
+    name = "langchain_test",
+    size = "small",
+    timeout = "eternal",  # long==900 seconds, eternal==3600
+    srcs = ["langchain_test.py"],
+    tags = ["manual"],
+    deps = [
+        requirement("langchain"),
+        requirement("torch"),
+        requirement("torchaudio"),
+        requirement("torchvision"),
+        requirement("transformers"),
+    ],
+)
+
 # This rule adds a convenient way to update the requirements file.
 compile_pip_requirements(
     name = "requirements",
     extra_args = ["--allow-unsafe"],
     requirements_in = "requirements.in",
+    requirements_linux = "requirements_linux.in",
     requirements_txt = "requirements_lock.txt",
 )

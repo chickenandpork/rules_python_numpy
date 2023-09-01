@@ -2,3 +2,4 @@ bazel-bin
 bazel-out
 bazel-rules_python_numpy
 bazel-testlogs
+__pycache__
