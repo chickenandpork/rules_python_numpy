@@ -18,12 +18,14 @@ py_binary(
 
 py_test(
     name = "test",
+    size = "small",  # implicit short == 60s
     srcs = ["test.py"],
     deps = [":main"],
 )
 
 py_test(
     name = "numpy_test",
+    size = "small",  # implicit short == 60s
     srcs = ["numpy_test.py"],
     deps = [
         requirement("numpy"),
@@ -32,6 +34,7 @@ py_test(
 
 py_test(
     name = "pydantic_test",
+    size = "small",  # implicit short == 60s
     srcs = ["pydantic_test.py"],
     deps = [
         requirement("pydantic"),
