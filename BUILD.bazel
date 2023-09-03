@@ -61,6 +61,6 @@ compile_pip_requirements(
     name = "requirements",
     extra_args = ["--allow-unsafe"],
     requirements_in = "requirements.in",
-    requirements_linux = "requirements_linux.in",
+    requirements_linux = "requirements_linux_lock.txt",
     requirements_txt = "requirements_lock.txt",
 )
