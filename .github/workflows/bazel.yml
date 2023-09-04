@@ -34,5 +34,5 @@ jobs:
           path: /tmp/bazel
           key: _bazel_runner
       - run: bazel build //...
-      - run: bazel test //...
+      - run: bazel test //... //:langchain_test
       - run: bazel run //:requirements.update

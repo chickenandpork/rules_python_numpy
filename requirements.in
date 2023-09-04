@@ -1,3 +1,10 @@
+langchain
 numpy
+nvidia-cuda-runtime-cu11 ; sys_platform=="linux"
 pydantic
+torch
+torchvision
+torchaudio
+transformers
+triton
 requests~=2.25.1
