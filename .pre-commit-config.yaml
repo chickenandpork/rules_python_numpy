@@ -1,6 +1,6 @@
 # To install the dependencies for this file:
 # 1) pip install pre-commit
-#   (really, "sudo python3 -m pip install pre-commit")
+#   (really, "sudo -H python3 -m pip install pre-commit")
 #   (really, I've been carrying this boilerplate for years, but now it's all python3?)
 #
 # 2) pre-commit install --allow-missing-config
