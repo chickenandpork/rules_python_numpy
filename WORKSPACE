@@ -17,9 +17,9 @@ http_archive(
         # ... but PR1166 not yet merged.  nkey0's workaround hardcoding triton and torch
         "//bzl/patches:nkey0-circulardeps.patch",  # https://github.com/bazelbuild/rules_python/pull/1166#issuecomment-1701230930
     ],
-    sha256 = "e85ae30de33625a63eca7fc40a94fea845e641888e52f32b6beea91e8b1b2793",
-    strip_prefix = "rules_python-0.27.1",
-    url = "https://github.com/bazelbuild/rules_python/releases/download/0.27.1/rules_python-0.27.1.tar.gz",
+    sha256 = "be04b635c7be4604be1ef20542e9870af3c49778ce841ee2d92fcb42f9d9516a",
+    strip_prefix = "rules_python-0.35.0",
+    url = "https://github.com/bazelbuild/rules_python/releases/download/0.35.0/rules_python-0.35.0.tar.gz",
 )
 
 load("@rules_python//python:repositories.bzl", "py_repositories", "python_register_toolchains")
