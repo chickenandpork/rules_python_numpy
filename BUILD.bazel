@@ -1,44 +1,71 @@
-load(
-    "@pypi//:requirements.bzl",
-    "data_requirement",
-    "dist_info_requirement",
-    "entry_point",
-    "requirement",
-)
-load("@rules_python//python:defs.bzl", "py_binary", "py_test")
+load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@pip//:requirements.bzl", "all_whl_requirements")
+load("@rules_python//python:defs.bzl", "py_binary", "py_library", "py_test")
 load("@rules_python//python:pip.bzl", "compile_pip_requirements")
+load("@rules_python_gazelle_plugin//manifest:defs.bzl", "gazelle_python_manifest")
+load("@rules_python_gazelle_plugin//modules_mapping:def.bzl", "modules_mapping")
 
-py_binary(
-    name = "main",
-    srcs = ["main.py"],
-    deps = [
-        "@pypi_requests//:pkg",
-    ],
+compile_pip_requirements(
+    name = "requirements",
+    requirements_txt = "requirements_lock.txt",
+    requirements_darwin = "requirements_darwin_lock.txt",
+    requirements_linux = "requirements_linux_lock.txt",
+    src = "requirements.in",
+    timeout = "long",  # long==900 seconds, eternal==3600
+)
+
+modules_mapping(
+    name = "modules_map",
+    exclude_patterns = ["^_|(\\._)+"],  # This is the default.
+    wheels = all_whl_requirements,
+)
+
+# This macro produces two targets:
+# - //:gazelle_python_manifest.update can be used with `bazel run`
+#   to recalculate the manifest
+# - //:gazelle_python_manifest.test is a test target ensuring that
+#   the manifest doesn't need to be updated
+# This target updates a file called gazelle_python.yaml, and
+# requires that file exist before the target is run.
+gazelle_python_manifest(
+    name = "gazelle_python_manifest",
+    modules_mapping = ":modules_map",
+    pip_repository_name = "pip",
+    tags = ["exclusive"],
+)
+
+# You can execute:
+# - bazel run //:gazelle update
+# - bazel run //:gazelle fix
+gazelle(
+    name = "gazelle",
+    gazelle = "@rules_python_gazelle_plugin//python:gazelle_binary",
 )
 
 py_test(
     name = "test",
-    size = "small",  # implicit short == 60s
+    size = "small",
     srcs = ["test.py"],
-    deps = [":main"],
+    visibility = ["//:__subpackages__"],
+    deps = [":rules_python_numpy"],
 )
 
-py_test(
-    name = "numpy_test",
-    size = "small",  # implicit short == 60s
-    srcs = ["numpy_test.py"],
-    deps = [
-        requirement("numpy"),
+py_binary(
+    name = "main",
+    srcs = [
+        "main.py",
     ],
+    visibility = ["//:__subpackages__"],
+    deps = ["@pip//requests"],
 )
 
-py_test(
-    name = "pydantic_test",
-    size = "small",  # implicit short == 60s
-    srcs = ["pydantic_test.py"],
-    deps = [
-        requirement("pydantic"),
+py_library(
+    name = "rules_python_numpy",
+    srcs = [
+        "main.py",
     ],
+    visibility = ["//:__subpackages__"],
+    deps = ["@pip//requests"],
 )
 
 py_test(
@@ -46,22 +73,19 @@ py_test(
     size = "small",
     timeout = "eternal",  # long==900 seconds, eternal==3600
     srcs = ["langchain_test.py"],
-    tags = ["manual"],
-    deps = [
-        requirement("langchain"),
-        requirement("torch"),
-        requirement("torchaudio"),
-        requirement("torchvision"),
-        requirement("transformers"),
-    ],
+    deps = ["@pip//langchain"],
 )
 
-# This rule adds a convenient way to update the requirements file.
-compile_pip_requirements(
-    name = "requirements",
-    extra_args = ["--allow-unsafe"],
-    requirements_in = "requirements.in",
-    requirements_linux = "requirements_linux_lock.txt",
-    requirements_txt = "requirements_lock.txt",
-    timeout = "long",  # long==900 seconds, eternal==3600
+py_test(
+    name = "numpy_test",
+    size = "small",
+    srcs = ["numpy_test.py"],
+    deps = ["@pip//numpy"],
+)
+
+py_test(
+    name = "pydantic_test",
+    size = "small",
+    srcs = ["pydantic_test.py"],
+    deps = ["@pip//pydantic"],
 )
