@@ -16,9 +16,10 @@
       "automerge": true
     }
   ],
-  "regexManagers": [
-   {
-     "fileMatch": [".github/workflows/.*.yml"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [".github/workflows/.*.yml"],
       "matchStrings": [
         "renovatebot datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?_VERSION: (?<currentValue>.*)\\s"
       ],
