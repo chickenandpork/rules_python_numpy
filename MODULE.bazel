@@ -1,6 +1,6 @@
 module(name = "rules_python_numpy", version = "0.0.0")
 
-bazel_dep(name = "gazelle", version = "0.38.0", repo_name = "bazel_gazelle")
+bazel_dep(name = "gazelle", version = "0.39.1", repo_name = "bazel_gazelle")
 bazel_dep(name = "rules_python", version = "0.36.0")
 bazel_dep(name = "rules_python_gazelle_plugin", version = "0.37.1")
 
