@@ -1,5 +1,2 @@
-bazel-bin
-bazel-out
-bazel-rules_python_numpy
-bazel-testlogs
+bazel-*
 __pycache__
