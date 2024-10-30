@@ -23,7 +23,8 @@
       "automerge": true,
       "enabled": true,
       "matchManagers": [
-        "bazel"
+        "bazel",
+        "bazel_dep"
       ],
       "matchUpdateTypes": [
         "patch",
