@@ -1,9 +1,11 @@
 # rules_python_numpy
-Example of the pip_parse() issue with numpy
+Originally created to show a specific pip_parse() issue with numpy,this repo now acts as a simple
+demonstration of Munpy with Bazel and RenovateBot.
 
 ## linux requirements on Mac
 
-I develop mostlyon a Mac, but of course nVidia needs a linux env: I've been creating the linux-specific requirements using:
+I develop mostlyon a Mac, but of course nVidia needs a linux env: I've been creating the
+linux-specific requirements using:
 ```
 docker run --rm -it \
     -v ~/src/rules_python_numpy:/rules_python_numpy \
