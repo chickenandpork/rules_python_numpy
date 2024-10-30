@@ -24,7 +24,8 @@
       "enabled": true,
       "matchManagers": [
         "bazel",
-        "bazel_dep"
+        "bazel-module",
+        "pip_requirements"
       ],
       "matchUpdateTypes": [
         "patch",
