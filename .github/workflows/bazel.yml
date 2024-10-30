@@ -2,8 +2,6 @@ name: Bazel build
 
 env:
   HOMEBREW_NO_AUTO_UPDATE: 1
-  # typically used for bazel internal testing: changes outputRoot, sets idletimeout to ~15s
-  TEST_TMPDIR: /tmp/bazel
 
 # yamllint disable-line rule:truthy
 on:
@@ -19,20 +17,31 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
-
+        os: [ubuntu-latest]  # macos-latest
     steps:
-      - uses: actions/checkout@v4
-        # action runners have bazelisk: - uses: bazelbuild/setup-bazelisk@v2
-        # https://github.com/bazelbuild/bazel/issues/11062
-      - run: mkdir -p "${TEST_TMPDIR}"
-      - run: env | sort
-      - name: Mount bazel cache  # Optional
-        uses: actions/cache@v4
+      -
+        name: Date-Based Cache key
+        # get a key showing the current week (ISO: yyyyWww)
+        id: week
+        run: echo "::set-output name=iso::$(date +'bazel-%YW%U')"
+      -
+        uses: bazel-contrib/setup-bazel@0.9.0
         with:
-          # needs to be an absolute path, not a variable; I've made it match TEST_TMPDIR above
-          path: /tmp/bazel
-          key: _bazel_runner
-      - run: bazel build //...
-      - run: bazel test //... //:langchain_test
-      - run: bazel run //:requirements.update
+          # Cache bazel downloads via bazelisk
+          bazelisk-cache: true
+          # Store build cache per workflow.
+          disk-cache: ${{ steps.week.outputs.iso }}
+          # Share repository cache between workflows.
+          repository-cache: true
+      -
+        uses: actions/checkout@v4
+      -
+        run: bazel build //...
+      -
+        run: bazel test //...
+      -
+        run: bazel test //:langchain_test
+      -
+        run: bazel run //:requirements.update
+      -
+        run: bazel test //...
