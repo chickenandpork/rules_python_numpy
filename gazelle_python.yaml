@@ -5,48 +5,41 @@
 
 manifest:
   modules_mapping:
-    PIL: pillow
-    aiohappyeyeballs: aiohappyeyeballs
+    PIL: Pillow
     aiohttp: aiohttp
     aiosignal: aiosignal
     annotated_types: annotated_types
-    anyio: anyio
     async_timeout: async_timeout
     attr: attrs
     attrs: attrs
     certifi: certifi
     chardet: chardet
-    exceptiongroup: exceptiongroup
+    charset_normalizer: charset_normalizer
+    dataclasses_json: dataclasses_json
     filelock: filelock
     frozenlist: frozenlist
     fsspec: fsspec
     greenlet: greenlet
-    h11: h11
-    httpcore: httpcore
-    httpx: httpx
     huggingface_hub: huggingface_hub
     idna: idna
     isympy: sympy
-    jinja2: jinja2
-    jsonpatch: jsonpatch
-    jsonpointer: jsonpointer
+    jinja2: Jinja2
     langchain: langchain
-    langchain_core: langchain_core
-    langchain_text_splitters: langchain_text_splitters
     langsmith: langsmith
     markupsafe: MarkupSafe
+    marshmallow: marshmallow
     mpmath: mpmath
     multidict: multidict
+    mypy_extensions: mypy_extensions
     networkx: networkx
+    numexpr: numexpr
     numpy: numpy
-    orjson: orjson
     packaging: packaging
     pydantic: pydantic
     pydantic_core: pydantic_core
     regex: regex
     requests: requests
     safetensors: safetensors
-    sniffio: sniffio
     sqlalchemy: SQLAlchemy
     sympy: sympy
     tenacity: tenacity
@@ -54,6 +47,7 @@ manifest:
     tqdm: tqdm
     transformers: transformers
     typing_extensions: typing_extensions
+    typing_inspect: typing_inspect
     urllib3: urllib3
     yaml: PyYAML
     yarl: yarl
