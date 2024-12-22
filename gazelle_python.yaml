@@ -19,7 +19,6 @@ manifest:
     filelock: filelock
     frozenlist: frozenlist
     fsspec: fsspec
-    functorch: torch
     greenlet: greenlet
     huggingface_hub: huggingface_hub
     idna: idna
@@ -35,42 +34,21 @@ manifest:
     networkx: networkx
     numexpr: numexpr
     numpy: numpy
-    nvfuser: torch
-    nvidia: nvidia_cuda_runtime_cu12
-    nvidia.cublas: nvidia_cublas_cu12
-    nvidia.cuda_cupti: nvidia_cuda_cupti_cu12
-    nvidia.cuda_nvrtc: nvidia_cuda_nvrtc_cu12
-    nvidia.cudnn: nvidia_cudnn_cu12
-    nvidia.cufft: nvidia_cufft_cu12
-    nvidia.curand: nvidia_curand_cu12
-    nvidia.cusolver: nvidia_cusolver_cu12
-    nvidia.cusparse: nvidia_cusparse_cu12
-    nvidia.nccl: nvidia_nccl_cu12
-    nvidia.nvjitlink: nvidia_nvjitlink_cu12
-    nvidia.nvtx: nvidia_nvtx_cu12
     packaging: packaging
-    pkg_resources: setuptools
     pydantic: pydantic
     pydantic_core: pydantic_core
     regex: regex
     requests: requests
     safetensors: safetensors
-    setuptools: setuptools
     sqlalchemy: SQLAlchemy
     sympy: sympy
     tenacity: tenacity
     tokenizers: tokenizers
-    torch: torch
-    torchaudio: torchaudio
-    torchgen: torch
-    torchvision: torchvision
     tqdm: tqdm
     transformers: transformers
-    triton: triton
     typing_extensions: typing_extensions
     typing_inspect: typing_inspect
     urllib3: urllib3
-    wheel: wheel
     yaml: PyYAML
     yarl: yarl
   pip_repository:
