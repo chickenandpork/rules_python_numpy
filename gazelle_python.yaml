@@ -6,8 +6,7 @@
 ---
 manifest:
   modules_mapping:
-    PIL: pillow
-    aiohappyeyeballs: aiohappyeyeballs
+    PIL: Pillow
     aiohttp: aiohttp
     aiosignal: aiosignal
     annotated_types: annotated_types
