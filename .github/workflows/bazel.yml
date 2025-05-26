@@ -38,10 +38,10 @@ jobs:
       -
         run: bazel build //...
       -
-        run: bazel test //...
+        run: |
+          bazel run //:requirements.update
+          bazel run @@//:gazelle_python_manifest.update
+      -
+        run: bazel test //... --test_summary=detailed --test_output=errors
       -
         run: bazel test //:langchain_test
-      -
-        run: bazel run //:requirements.update
-      -
-        run: bazel test //...
