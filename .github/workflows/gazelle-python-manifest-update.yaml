@@ -1,0 +1,52 @@
+---
+name: Periodoc Python Manifest Update
+# yamllint disable-line rule:truthy
+on:
+  schedule:
+    - cron: "17 00 * * *"  # 00:17UTC, ~17:17 PST
+  workflow_dispatch:
+
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    name: Update Manifest
+    steps:
+      -
+        name: Date-Based Cache key
+        # get a key showing the current week (ISO: yyyyWww)
+        id: week
+        run: echo "::set-output name=iso::$(date +'bazel-%YW%U')"
+      -
+        uses: bazel-contrib/setup-bazel@0.14.0
+        with:
+          # Cache bazel downloads via bazelisk
+          bazelisk-cache: true
+          # Store build cache per workflow.
+          disk-cache: ${{ steps.week.outputs.iso }}
+          # Share repository cache between workflows.
+          repository-cache: true
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: Update
+        id: update
+        run: |
+          bazel run @@//:gazelle_python_manifest.update
+      -
+        name: commit
+        id: commit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHPAT_CNP_CNB }}
+        run: |
+          git config --global user.name "Allan Clark"
+          git config --global user.email "chickenandpork@users.noreply.github.com"
+          if $(git diff --cached --quiet)
+          then
+              echo "Nothing to commit"
+          else
+              echo "New content to commit"
+              git commit -am "chore: Python Manifest Update $(date '+%F_%T')" && git push || true
+          fi
+        shell: bash
