@@ -229,9 +229,9 @@ charset-normalizer==3.2.0 \
     --hash=sha256:f779d3ad205f108d14e99bb3859aa7dd8e9c68874617c72354d7ecaec2a054ac \
     --hash=sha256:f87f746ee241d30d6ed93969de31e5ffd09a2961a051e60ae6bddde9ec3583aa
     # via aiohttp
-dataclasses-json==0.5.14 \
-    --hash=sha256:5ec6fed642adb1dbdb4182badb01e0861badfd8fda82e3b67f44b2d1e9d10d21 \
-    --hash=sha256:d82896a94c992ffaf689cd1fafc180164e2abdd415b8f94a7f78586af5886236
+dataclasses-json==0.6.7 \
+    --hash=sha256:0dbf33f26c8d5305befd61b39d2b3414e8a407bedc2834dea9b8d642666fb40a \
+    --hash=sha256:b6b3e528266ea45b9535223bc53ca645f5208833c29229e847b3f26a1cc55fc0
     # via langchain
 filelock==3.12.3 \
     --hash=sha256:0ecc1dd2ec4672a10c8550a8182f1bd0c0a5088470ecd5a125e45f49472fac3d \
