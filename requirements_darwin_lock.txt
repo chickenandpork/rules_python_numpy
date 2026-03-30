@@ -416,9 +416,9 @@ langchain==0.2.15 \
     --hash=sha256:9e6231441870aaa8523be24a5785ccccfdde759a7e27dd082b6ec80f68e49dec \
     --hash=sha256:f613ce7594be34f9bac687134a56f6e8274951907b798dbd037aefc95df78953
     # via -r requirements.in
-langchain-core==0.2.36 \
-    --hash=sha256:56f2367070e8afc43922bba1d046035a144b4e732a5474676403bd0eb33d85f2 \
-    --hash=sha256:eabce6e7538cb9dc60db4bc1eb584bbb91a5e7e02a96d5b65b4a6ab151081b6d
+langchain-core==0.3.83 \
+    --hash=sha256:8c92506f8b53fc1958b1c07447f58c5783eb8833dd3cb6dc75607c80891ab1ae \
+    --hash=sha256:a0a4c7b6ea1c446d3b432116f405dc2afa1fe7891c44140d3d5acca221909415
     # via
     #   langchain
     #   langchain-text-splitters
