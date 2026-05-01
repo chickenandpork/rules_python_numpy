@@ -519,9 +519,9 @@ langchain==0.0.279 \
     --hash=sha256:344e33d73c76ae35cdd8c3ba16c965bac29e0e889c93064718c5982002cbe30c \
     --hash=sha256:d91e65b3a210e9b52e42ed67c65d76caeaa3195ff097217f5ab2ca477bd3ae27
     # via -r requirements.in
-langsmith==0.0.32 \
-    --hash=sha256:6ec660b991057f7f4217ddfb9e10d75ae3159d1410af55818b848e2ede3e019c \
-    --hash=sha256:de40a65c81b9aa26dcabe3d2aee84a43a6e1703a5381d624b6d58166b4b3e00c
+langsmith==0.8.0 \
+    --hash=sha256:12cc4bc5622b835a6d841964d6034df3617bdb912dae0c1381fd0a68a9b3a3ef \
+    --hash=sha256:59fe5b2a56bbbe14a08aa76691f84b49e8675dd21e11b57d80c6db8c08bac2e3
     # via langchain
 MarkupSafe==2.1.5 \
     --hash=sha256:00e046b6dd71aa03a41079792f8473dc494d564611a8f89bbbd7cb93295ebdcf \
