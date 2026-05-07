@@ -515,9 +515,9 @@ Jinja2==3.1.6 \
     --hash=sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d \
     --hash=sha256:85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67
     # via torch
-langchain==0.0.279 \
-    --hash=sha256:344e33d73c76ae35cdd8c3ba16c965bac29e0e889c93064718c5982002cbe30c \
-    --hash=sha256:d91e65b3a210e9b52e42ed67c65d76caeaa3195ff097217f5ab2ca477bd3ae27
+langchain==0.3.30 \
+    --hash=sha256:06599ec90fb550e0118b0ceab737667d2c0891fcc62ffce2058d21c945844448 \
+    --hash=sha256:37e6fcce92faf70cc7bac23739d13d6c3b9a3282da4dbcc06cb7e78330ed406a
     # via -r requirements.in
 langsmith==0.0.32 \
     --hash=sha256:6ec660b991057f7f4217ddfb9e10d75ae3159d1410af55818b848e2ede3e019c \
